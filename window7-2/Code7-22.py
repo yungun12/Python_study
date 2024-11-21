@@ -1,15 +1,14 @@
 from tkinter import *
-from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import *
 
 # 함수 선언 부분
 def func_open():
     filename = askopenfilename(parent=window,
                                filetypes=(("GIF 파일", "*.gif"),
                                           ("모든 파일", "*.*")))
-    if filename:  # 파일이 선택되었는지 확인
-        photo = PhotoImage(file=filename)
-        pLabel.configure(image=photo)
-        pLabel.image = photo  # 참조 유지
+    photo = PhotoImage(file=filename)
+    pLabel.configure(image=photo)
+    pLabel.image = photo
 
 def func_exit():
     window.quit()
@@ -17,7 +16,7 @@ def func_exit():
 
 # 메인 코드 부분
 window = Tk()
-window.geometry('400x400')
+window.geometry("400x400")
 window.title("명화 감상하기")
 
 photo = PhotoImage()
